@@ -41,12 +41,15 @@ int main(void) {
 
     uint32_t points_max = 2;
 
+	// Version that incorrectly populates index and vertex buffers
     Vertex* vertices = new Vertex[4*points_max];
     uint32_t *indices = new uint32_t[6*points_max];
     
     for (uint64_t i = 0; i < points_max; i++) {
         BufferGen::BufferPoint(vertices, indices, i);
     }
+	
+	// Inline version that correctly generates the points
 
     /*Vertex vertices[8];
     uint32_t indices[12];
