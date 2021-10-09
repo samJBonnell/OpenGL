@@ -74,10 +74,10 @@ int main(void) {
 
         // Dynamic Buffering
         glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
+        glBufferSubData(GL_ARRAY_BUFFER, 0, 4 * points_max * sizeof(float), vertices);
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-        glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, sizeof(indices), indices);
+        glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, 6 * points_max *sizeof(uint32_t), indices);
 
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6*points_max, GL_UNSIGNED_INT, nullptr);
