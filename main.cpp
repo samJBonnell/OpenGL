@@ -11,7 +11,7 @@
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
 
-constexpr uint32_t MAX_VERTEX = 10000;
+constexpr uint32_t MAX_VERTEX = 10000; // Vertex to index ratio is 6/4 (3/2) as it takes 6 index values to reference the 4 vertexes to create a quad.
 constexpr uint32_t MAX_INDICES = 15000;
 
 int main(void) {
