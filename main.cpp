@@ -41,29 +41,12 @@ int main(void) {
 
     uint32_t points_max = 2;
 
-	// Version that incorrectly populates index and vertex buffers
     Vertex* vertices = new Vertex[4*points_max];
     uint32_t *indices = new uint32_t[6*points_max];
     
-    for (uint64_t i = 0; i < points_max; i++) {
+    for (uint32_t i = 0; i < points_max; i++) {
         BufferGen::BufferPoint(vertices, indices, i);
     }
-	
-	// Inline version that correctly generates the points
-
-    /*Vertex vertices[8];
-    uint32_t indices[12];
-
-    auto q1 = CreateQuad(-1.0, -1.0);
-    auto q2 = CreateQuad(0.0, 0.0);
-
-    memcpy(vertices, q1.data(), q1.size() * sizeof(Vertex));
-    memcpy(vertices + q1.size(), q2.data(), q2.size() * sizeof(Vertex));
-
-    for (uint32_t i = 0; i < 2; i++) {
-        auto index = BufferGen::_genIndex(i);
-        memcpy(indices + (index.size() * i), index.data(), index.size() * sizeof(uint32_t));
-    }*/
 
     unsigned int VBO, VAO, EBO;
     glGenVertexArrays(1, &VAO);
